@@ -11,12 +11,21 @@ import androidx.room.Update;
 
 @Dao
 public interface EventDAO {
+
+    @Query("SELECT * FROM Events")
+    LiveData<List<Event>> getAll();
+
+
     @Insert
     void addEvent(Event... event);
+
+    @Update
+    void updateEvent(Event...events);
 
     @Delete
     void removeEvent(Event... event);
 
-
+    @Query("Delete From events where eventId = :e_id")
+    void delete(int e_id);
 
 }
