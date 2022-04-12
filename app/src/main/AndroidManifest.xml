@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Daily_Organized">
         <activity
+            android:name=".WeekDisplayActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

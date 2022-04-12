@@ -17,27 +17,27 @@ public class Event {
     private boolean important;
     private boolean showAlert;
 */
-    public Event(int id, String desc, int month, int day, int year, String time, boolean important, boolean showAlert){
-        this.eventId = id;
-        this.eventDescription = desc;
+    public Event(int id, String desc, int month, int day, int year, String time, boolean important, boolean done){
+        this.id = id;
+        this.desc = desc;
         this.month = month;
         this.day = day;
         this.year = year;
-        this.timeOfEvent = time;
+        this.time = time;
         this.important = important;
-        this.done = showAlert;
+        this.done = done;
     }
 
-    public Event(int id){
-        this.eventId = id;
-    }
+    //public Event(int id){
+       // this.eventId = id;
+   // }
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "eventId")
-    public int eventId;
+    public int id;
 
     @ColumnInfo(name = "eventDescription")
-    public String eventDescription;
+    public String desc;
 
     @ColumnInfo(name = "month")
     public int month;
@@ -49,7 +49,7 @@ public class Event {
     public int year;
 
     @ColumnInfo(name = "timeOfEvent")
-    public  String timeOfEvent;
+    public  String time;
 
     @ColumnInfo(name = "important")
     public boolean important;
