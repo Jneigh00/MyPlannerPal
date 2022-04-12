@@ -2,6 +2,10 @@ package com.example.daily_organized.Database;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+
 import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
@@ -64,5 +68,19 @@ public abstract class EventDatabase extends RoomDatabase{
         new Thread(() -> INSTANCE.eventDAO().updateEvent(event)).start();
     }
 
+    private static void getEvent(int id, eventListener listener){
+        Handler handler = new Handler(Looper.getMainLooper()){
+            @Override
+            public void handleMessage(Message m){
+                super.handleMessage(m);
+                listener.onEventReturn((Event)m.obj );
+            }
+        };
+        (new Thread(() -> {
+            Message m = handler.obtainMessage();
+            m.obj = INSTANCE.eventDAO().getById(id);
+            handler.sendMessage(m);
+        } )).start();
 
+    }
 }
