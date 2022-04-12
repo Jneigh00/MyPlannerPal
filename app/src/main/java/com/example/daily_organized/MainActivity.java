@@ -1,5 +1,4 @@
 package com.example.daily_organized;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Insert;
 
@@ -14,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 login.setEnabled(false);
             }
         }
+
 
     }
 
