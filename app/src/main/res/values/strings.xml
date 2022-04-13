@@ -20,6 +20,7 @@
     <string name="user123">User123</string>
     <string name="information_about_user">Information about user</string>
     <string name="logout">Logout</string>
+    <string name="login_with_google_account">Login with Google Account</string>
     <!--Strings for the settings and the add event layout-->
 
 </resources>
