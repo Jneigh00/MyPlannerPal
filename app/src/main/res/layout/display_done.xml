@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/done_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/todo_or_done"
+                android:layout_width="166dp"
+                android:layout_height="39dp"
+                app:layout_constraintBottom_toBottomOf="@+id/done_toolbar"
+                app:layout_constraintEnd_toStartOf="@+id/settings_button"
+                app:layout_constraintStart_toEndOf="@+id/delete_done"
+                app:layout_constraintTop_toTopOf="@+id/done_toolbar"
+                app:layout_constraintVertical_bias="0.515"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/settings_button"
+                android:layout_width="61dp"
+                android:layout_height="41dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/settings"
+                app:layout_constraintBottom_toBottomOf="@+id/done_toolbar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.533" />
+
+            <Button
+                android:id="@+id/delete_done"
+                android:layout_width="61dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/remove"
+                app:layout_constraintBottom_toBottomOf="@+id/done_toolbar"
+                app:layout_constraintStart_toStartOf="@+id/done_toolbar"
+                app:layout_constraintTop_toTopOf="@+id/done_toolbar"
+                app:layout_constraintVertical_bias="0.533" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <TextView
+        android:id="@+id/done_text"
+        android:layout_width="224dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/done_list"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_for_done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/done_text" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
