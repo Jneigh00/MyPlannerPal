@@ -3,7 +3,6 @@
 
     <string name="week_of_2_27_22">Week of 2/27/22</string>
 
-    <!--Strings for the settings and the add event layout-->
     <string name="add_event">Add Event</string>
     <string name="event_name">Event Name</string>
     <string name="description">Description</string>
@@ -21,6 +20,18 @@
     <string name="information_about_user">Information about user</string>
     <string name="logout">Logout</string>
     <string name="login_with_google_account">Login with Google Account</string>
-    <!--Strings for the settings and the add event layout-->
+    <string name="add">add</string>
+    <string name="to_do_list">To Do List</string>
+    <string name="back">back</string>
+    <string name="todo_tast_example">todo tast example</string>
+    <string name="add_to_do">Add To Do</string>
+    <string name="save_to_do">Save To Do</string>
+    <string name="remove">remove</string>
+    <string name="done_list">Done List</string>
+
+    <string-array name="tododone">
+        <item>To Do</item>
+        <item>Done</item>
+    </string-array>
 
 </resources>
