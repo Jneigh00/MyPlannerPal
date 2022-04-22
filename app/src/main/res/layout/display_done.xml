@@ -40,7 +40,8 @@
                 app:layout_constraintStart_toEndOf="@+id/delete_done"
                 app:layout_constraintTop_toTopOf="@+id/done_toolbar"
                 app:layout_constraintVertical_bias="0.515"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:background="@drawable/dropdown_for_spinner"/>
 
             <Button
                 android:id="@+id/settings_button"
