@@ -28,6 +28,12 @@
     <string name="save_to_do">Save To Do</string>
     <string name="remove">remove</string>
     <string name="done_list">Done List</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="login_page">Login Page</string>
+    <string name="usernamecolon">Username:</string>
+    <string name="passwordcolon">Password:</string>
 
     <string-array name="tododone">
         <item>To Do</item>

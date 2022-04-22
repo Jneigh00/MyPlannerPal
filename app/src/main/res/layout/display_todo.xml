@@ -55,10 +55,10 @@ tools:context=".LoginPage">
 
             <Button
                 android:id="@+id/add_todo_button"
-                android:layout_width="61dp"
-                android:layout_height="41dp"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="8dp"
-                android:text="@string/add"
+                android:background="@drawable/add_todo_image"
                 app:layout_constraintBottom_toBottomOf="@+id/todo_toolbar"
                 app:layout_constraintStart_toStartOf="@+id/todo_toolbar"
                 app:layout_constraintTop_toTopOf="@+id/todo_toolbar"
@@ -71,12 +71,14 @@ tools:context=".LoginPage">
 
     <TextView
         android:id="@+id/todo_text"
-        android:layout_width="224dp"
-        android:layout_height="42dp"
+        android:layout_width="225dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:text="@string/to_do_list"
         android:textAlignment="center"
-        android:textSize="25dp"
+        android:textSize="35sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
@@ -84,8 +86,8 @@ tools:context=".LoginPage">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_for_todos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
