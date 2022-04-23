@@ -30,7 +30,7 @@ public abstract class EventDatabase extends RoomDatabase{
 
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             EventDatabase.class, "joke_database")
-
+                            .allowMainThreadQueries()
                             .addCallback(createEventDatabaseCallback)
                             .build();
                 }
@@ -43,11 +43,13 @@ public abstract class EventDatabase extends RoomDatabase{
             new RoomDatabase.Callback() {
                 public void onCreate(@NonNull SupportSQLiteDatabase db) {
                     super.onCreate(db);
+                    /*
                     for (int i = 0; i < DefaultContent.ID.length; i++) {
                         INSTANCE.addEvent(new Event(DefaultContent.ID[i], DefaultContent.DESC[i], DefaultContent.MONTH[i],
                                                 DefaultContent.DAY[i], DefaultContent.YEAR[i], DefaultContent.TIME[i],
                                                 DefaultContent.IMPORTANT[i], DefaultContent.DONE[i]));
                     }
+                     */
                 }
             };
 
