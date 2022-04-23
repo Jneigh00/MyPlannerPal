@@ -20,6 +20,11 @@
         <entry key="..\:/Users/jnaho/AndroidStudioProjects/MyPlannerPal/app/src/main/res/layout/display_day.xml" value="0.33" />
         <entry key="..\:/Users/jnaho/AndroidStudioProjects/MyPlannerPal/app/src/main/res/layout/login.xml" value="0.33" />
         <entry key="..\:/Users/jnaho/AndroidStudioProjects/MyPlannerPal/app/src/main/res/layout/settings.xml" value="0.764344262295082" />
+        <entry key="app/src/main/res/layout/activity_add.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/add_event.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/display_in_todo.xml" value="0.2796296296296296" />
+        <entry key="app/src/main/res/layout/display_todo.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/recycler_row.xml" value="0.14835662841796876" />
       </map>
     </option>
   </component>
