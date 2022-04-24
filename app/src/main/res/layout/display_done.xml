@@ -28,6 +28,7 @@
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,12 +36,14 @@
                 android:id="@+id/todo_or_done"
                 android:layout_width="166dp"
                 android:layout_height="39dp"
+                android:gravity="center"
+                android:text="@string/show_to_do"
                 app:layout_constraintBottom_toBottomOf="@+id/done_toolbar"
                 app:layout_constraintEnd_toStartOf="@+id/settings_button"
+                app:layout_constraintHorizontal_bias="0.648"
+                app:layout_constraintStart_toStartOf="@+id/done_toolbar"
                 app:layout_constraintTop_toTopOf="@+id/done_toolbar"
-                app:layout_constraintVertical_bias="0.515"
-                android:text = "Show Done"
-                android:gravity="center"/>
+                app:layout_constraintVertical_bias="0.529" />
 
             <Button
                 android:id="@+id/settings_button"
