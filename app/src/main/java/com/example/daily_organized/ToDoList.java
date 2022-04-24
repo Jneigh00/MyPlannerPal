@@ -27,6 +27,7 @@ public class ToDoList extends AppCompatActivity  implements AdapterView.OnItemSe
     Button checkDoneBtn;
     RecyclerView recyclerView;
     AdapterToDo adapterToDo;
+    Button done;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -34,12 +35,11 @@ public class ToDoList extends AppCompatActivity  implements AdapterView.OnItemSe
         setContentView(R.layout.display_todo);
 
 
-        Spinner spinner = findViewById(R.id.todo_or_done);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tododone, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+
         recyclerView = findViewById(R.id.recyclerview_for_todos);
+        done = findViewById(R.id.todo_or_done);
 
         settings = (Button)findViewById(R.id.settings_button);
         settings.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +56,14 @@ public class ToDoList extends AppCompatActivity  implements AdapterView.OnItemSe
                 navigateToAddActivity();
             }
         });
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ToDoList.this, DoneList.class);
+                startActivity(intent);
+            }
+        });
+
 
         initRecyclerView();
         loadEventList();
@@ -84,8 +92,8 @@ public class ToDoList extends AppCompatActivity  implements AdapterView.OnItemSe
 
     private void loadEventList() {
         EventDatabase db = EventDatabase.getDatabase(this.getApplicationContext());
-        List<Event> userList = db.eventDAO().getAllToDoEvents(false);
-        adapterToDo.setEventList(userList);
+        List<Event> eventList = db.eventDAO().getAllToDoEvents(false);
+        adapterToDo.setEventList(eventList);
     }
 
 
