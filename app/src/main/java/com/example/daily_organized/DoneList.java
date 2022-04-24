@@ -10,7 +10,6 @@ import android.widget.Button;
 public class DoneList extends AppCompatActivity {
 
     Button moveToDoList;
-    Button remove;
     Button settings;
 
 
@@ -20,7 +19,6 @@ public class DoneList extends AppCompatActivity {
         setContentView(R.layout.display_done);
 
         moveToDoList = findViewById(R.id.todo_or_done);
-        remove = findViewById((R.id.delete_done));
         settings = findViewById(R.id.settings_button);
 
         settings.setOnClickListener(new View.OnClickListener() {
