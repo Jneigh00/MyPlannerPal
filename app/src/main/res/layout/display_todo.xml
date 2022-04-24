@@ -31,18 +31,6 @@ tools:context=".LoginPage">
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Spinner
-                android:id="@+id/todo_or_done"
-                android:layout_width="125dp"
-                android:layout_height="40dp"
-                app:layout_constraintBottom_toBottomOf="@+id/todo_toolbar"
-                app:layout_constraintEnd_toStartOf="@+id/settings_button"
-                app:layout_constraintStart_toEndOf="@+id/add_todo_button"
-                app:layout_constraintTop_toTopOf="@+id/todo_toolbar"
-                app:layout_constraintVertical_bias="0.515"
-                android:textColor="@color/black"
-                android:gravity="center" />
-
             <Button
                 android:id="@+id/settings_button"
                 android:layout_width="50dp"
