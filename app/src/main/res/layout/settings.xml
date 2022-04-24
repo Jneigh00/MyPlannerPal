@@ -33,33 +33,20 @@
 
             <Button
                 android:id="@+id/back_button"
-                android:layout_width="60dp"
-                android:layout_height="40dp"
+                android:layout_width="72dp"
+                android:layout_height="37dp"
                 android:layout_marginStart="8dp"
                 android:text="@string/back"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="@+id/todo_toolbar"
                 app:layout_constraintStart_toStartOf="@+id/todo_toolbar"
                 app:layout_constraintTop_toTopOf="@+id/todo_toolbar"
-                app:layout_constraintVertical_bias="0.533"
-                android:textColor="@color/black"/>
+                app:layout_constraintVertical_bias="0.533" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
-
-    <TextView
-        android:id="@+id/account"
-        android:layout_width="200dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="@string/account"
-        android:textSize="35sp"
-        app:layout_constraintEnd_tondOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dark_mode" />
 
     <TextView
         android:id="@+id/title_text"
@@ -79,63 +66,28 @@
         android:id="@+id/appearance"
         android:layout_width="200dp"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:gravity="center"
         android:text="@string/appearance"
-        android:textSize="35sp"
+        android:textColor="@color/black"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_text" />
 
-    <TextView
-        android:id="@+id/dark_mode"
-        android:layout_width="200dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="24dp"
+    <Switch
+        android:id="@+id/darkmode_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="@string/dark_mode"
-        android:textSize="35sp"
-        app:layout_constraintEnd_toStartOf="@+id/dark_mode_checkbox"
-        app:layout_constraintHorizontal_bias="0.083"
+        android:text="Dark Mode: "
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appearance" />
-
-    <CheckBox
-        android:id="@+id/dark_mode_checkbox"
-        android:layout_width="99dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appearance" />
-
-    <TextView
-        android:id="@+id/userinfo"
-        android:layout_width="305dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:text="@string/information_about_user"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
-
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="200dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/user123"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/account" />
 
     <Button
         android:id="@+id/logout_button"
@@ -148,6 +100,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/account"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:text="@string/account"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/darkmode_switch" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/user123"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
