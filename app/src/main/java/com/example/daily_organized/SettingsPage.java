@@ -11,8 +11,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +27,10 @@ public class SettingsPage extends AppCompatActivity {
     GoogleSignInClient gsc;
     Button signOut;
     CheckBox darkMode;
+    Button back;
+
+    TextView usernameDisplay;
+    TextView userInfoDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,24 @@ public class SettingsPage extends AppCompatActivity {
         setContentView(R.layout.settings);
 
 
+        usernameDisplay = findViewById(R.id.username);
+        userInfoDisplay = findViewById(R.id.userinfo);
+
+        back = findViewById(R.id.back_button);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String getActivity = getIntent().getStringExtra("ToDoList");
+                if(getActivity.equals("Todo")){
+                    Intent backIntent = new Intent(SettingsPage.this, ToDoList.class);
+                    startActivity(backIntent);
+                }
+                else if(getActivity.equals("done")){
+                    Intent backIntent = new Intent(SettingsPage.this, DoneList.class);
+                    startActivity(backIntent);
+                }
+            }
+        });
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this,gso);
@@ -44,7 +68,15 @@ public class SettingsPage extends AppCompatActivity {
             }
         });
 
-
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if(acct == null){
+            usernameDisplay.setText("Admin");
+            userInfoDisplay.setText("This person is normal");
+        }
+        else{
+            usernameDisplay.setText((acct.getEmail()));
+            userInfoDisplay.setText("This person is very good looking");
+        }
 
     }
 

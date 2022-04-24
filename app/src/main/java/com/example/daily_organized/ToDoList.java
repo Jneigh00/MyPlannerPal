@@ -72,11 +72,13 @@ public class ToDoList extends AppCompatActivity  implements AdapterView.OnItemSe
 
     public void navigateToSettings(){
         Intent intent = new Intent(ToDoList.this,SettingsPage.class);
+        intent.putExtra("ToDoList","Todo");
         startActivity(intent);
     }
 
     public void navigateToAddActivity(){
         Intent intent = new Intent(ToDoList.this, AddActivity.class);
+        intent.putExtra("ToDoList","Todo");
         startActivityForResult(intent, 100);
     }
 
