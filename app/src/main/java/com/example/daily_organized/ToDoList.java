@@ -1,29 +1,45 @@
 package com.example.daily_organized;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-public class ToDoList extends AppCompatActivity {
+import com.example.daily_organized.Database.Event;
+import com.example.daily_organized.Database.EventDatabase;
+
+import java.util.List;
+
+public class ToDoList extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
 
     Button settings;
     Button addActivity;
+    Button checkDoneBtn;
+    RecyclerView recyclerView;
+    AdapterToDo adapterToDo;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_todo);
+
 
         Spinner spinner = findViewById(R.id.todo_or_done);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tododone, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-
+        spinner.setOnItemSelectedListener(this);
+        recyclerView = findViewById(R.id.recyclerview_for_todos);
 
         settings = (Button)findViewById(R.id.settings_button);
         settings.setOnClickListener(new View.OnClickListener() {
@@ -40,7 +56,11 @@ public class ToDoList extends AppCompatActivity {
                 navigateToAddActivity();
             }
         });
+
+        initRecyclerView();
+        loadEventList();
     }
+
 
     public void navigateToSettings(){
         Intent intent = new Intent(ToDoList.this,SettingsPage.class);
@@ -49,6 +69,51 @@ public class ToDoList extends AppCompatActivity {
 
     public void navigateToAddActivity(){
         Intent intent = new Intent(ToDoList.this, AddActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 100);
+    }
+
+    private void initRecyclerView() {
+        RecyclerView recyclerView = findViewById(R.id.recyclerview_for_todos);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(dividerItemDecoration);
+        adapterToDo = new AdapterToDo(this);
+        recyclerView.setAdapter(adapterToDo);
+    }
+
+    private void loadEventList() {
+        EventDatabase db = EventDatabase.getDatabase(this.getApplicationContext());
+        List<Event> userList = db.eventDAO().getAllToDoEvents(false);
+        adapterToDo.setEventList(userList);
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode == 100) {
+            loadEventList();
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String item = adapterView.getItemAtPosition(i).toString();
+        EventDatabase db = EventDatabase.getDatabase(this.getApplicationContext());
+
+        if(item == "To Do"){
+            List<Event> userList = db.eventDAO().getAllToDoEvents(false);
+            adapterToDo.setEventList(userList);
+        } else {
+            List<Event> userList = db.eventDAO().getAllDoneEvents(true);
+            adapterToDo.setEventList(userList);
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

@@ -25,9 +25,9 @@ public class LoginPage extends AppCompatActivity {
     Button login;
     int counter = 5;
 
-     GoogleSignInOptions gso;
-     GoogleSignInClient gsc;
-     Button googleLogin;
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
+    Button googleLogin;
 
 
 
