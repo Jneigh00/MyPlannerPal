@@ -39,7 +39,7 @@ public class SettingsPage extends AppCompatActivity {
 
 
         usernameDisplay = findViewById(R.id.username);
-        userInfoDisplay = findViewById(R.id.userinfo);
+
 
         back = findViewById(R.id.back_button);
         back.setOnClickListener(new View.OnClickListener() {
@@ -71,11 +71,9 @@ public class SettingsPage extends AppCompatActivity {
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if(acct == null){
             usernameDisplay.setText("Admin");
-            userInfoDisplay.setText("This person is normal");
         }
         else{
             usernameDisplay.setText((acct.getEmail()));
-            userInfoDisplay.setText("This person is very good looking");
         }
 
     }
