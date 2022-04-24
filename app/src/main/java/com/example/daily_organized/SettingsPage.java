@@ -24,6 +24,9 @@ public class SettingsPage extends AppCompatActivity {
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     Button signOut;
+    Button toDoActivity;
+
+
     CheckBox darkMode;
 
     @Override
@@ -44,6 +47,14 @@ public class SettingsPage extends AppCompatActivity {
             }
         });
 
+        toDoActivity = (Button) findViewById(R.id.back_button);
+        toDoActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToToDo();
+            }
+        });
+
 
 
     }
@@ -56,5 +67,10 @@ public class SettingsPage extends AppCompatActivity {
                 startActivity(new Intent(SettingsPage.this, LoginPage.class));
             }
         });
+    }
+
+    public void navigateToToDo(){
+        Intent intent = new Intent(SettingsPage.this,ToDoList.class);
+        startActivity(intent);
     }
 }
