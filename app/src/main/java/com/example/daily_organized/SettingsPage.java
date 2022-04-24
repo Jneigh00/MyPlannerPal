@@ -11,8 +11,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,10 +26,11 @@ public class SettingsPage extends AppCompatActivity {
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     Button signOut;
-    Button toDoActivity;
-
-
     CheckBox darkMode;
+    Button back;
+
+    TextView usernameDisplay;
+    TextView userInfoDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,24 @@ public class SettingsPage extends AppCompatActivity {
         setContentView(R.layout.settings);
 
 
+        usernameDisplay = findViewById(R.id.username);
+
+
+        back = findViewById(R.id.back_button);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String getActivity = getIntent().getStringExtra("ToDoList");
+                if(getActivity.equals("Todo")){
+                    Intent backIntent = new Intent(SettingsPage.this, ToDoList.class);
+                    startActivity(backIntent);
+                }
+                else if(getActivity.equals("done")){
+                    Intent backIntent = new Intent(SettingsPage.this, DoneList.class);
+                    startActivity(backIntent);
+                }
+            }
+        });
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this,gso);
@@ -47,15 +68,13 @@ public class SettingsPage extends AppCompatActivity {
             }
         });
 
-        toDoActivity = (Button) findViewById(R.id.back_button);
-        toDoActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navigateToToDo();
-            }
-        });
-
-
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if(acct == null){
+            usernameDisplay.setText("Admin");
+        }
+        else{
+            usernameDisplay.setText((acct.getEmail()));
+        }
 
     }
 
@@ -67,10 +86,5 @@ public class SettingsPage extends AppCompatActivity {
                 startActivity(new Intent(SettingsPage.this, LoginPage.class));
             }
         });
-    }
-
-    public void navigateToToDo(){
-        Intent intent = new Intent(SettingsPage.this,ToDoList.class);
-        startActivity(intent);
     }
 }
