@@ -2,12 +2,14 @@ package com.example.daily_organized;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,10 +31,20 @@ public class ToDoList extends AppCompatActivity  implements AdapterView.OnItemSe
     AdapterToDo adapterToDo;
     Button done;
 
+    SharedPreferences pref;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_todo);
+
+
+        pref = getSharedPreferences("night",0);
+        Boolean isChecked = pref.getBoolean("night_mode",true);
+        if(isChecked){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
 
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tododone, android.R.layout.simple_spinner_item);

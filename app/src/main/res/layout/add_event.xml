@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/NightMode"
+    android:background="@color/backGround"
     tools:context=".LoginPage">
 
     <TextView
@@ -15,7 +17,7 @@
         android:text="@string/add_to_do"
         android:textSize="35sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,9 +30,10 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:hint="@string/event_name"
+        android:textColorHint="@color/textColor"
         android:textSize="25sp"
         android:gravity="start"
-        android:textColor="@color/black"
+        android:textColor="@color/textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_text" />
@@ -43,9 +46,10 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:hint="@string/description"
+        android:textColorHint="@color/textColor"
         android:textSize="20sp"
         android:gravity="start"
-        android:textColor="@color/black"
+        android:textColor="@color/textColor"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +62,7 @@
         android:layout_marginBottom="40dp"
         android:text="@string/save_to_do"
         android:textSize="25sp"
-        android:textColor="@color/black"
+        android:textColor="@color/textColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
