@@ -4,6 +4,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
+    android:theme="@style/NightMode"
+    android:background="@color/backGround"
 tools:context=".LoginPage">
 
 
@@ -79,7 +81,7 @@ tools:context=".LoginPage">
         android:text="@string/to_do_list"
         android:textAlignment="center"
         android:textSize="35sp"
-        android:textColor="@color/black"
+        android:textColor="@color/textColor"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

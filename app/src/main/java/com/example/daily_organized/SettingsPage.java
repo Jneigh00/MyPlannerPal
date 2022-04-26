@@ -7,10 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -26,11 +29,13 @@ public class SettingsPage extends AppCompatActivity {
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     Button signOut;
-    CheckBox darkMode;
+    Switch darkMode;
     Button back;
 
     TextView usernameDisplay;
     TextView userInfoDisplay;
+
+    SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,35 @@ public class SettingsPage extends AppCompatActivity {
 
 
         usernameDisplay = findViewById(R.id.username);
+
+        pref = getSharedPreferences("night",0);
+        darkMode = findViewById(R.id.darkmode_switch);
+
+        Boolean isChecked = pref.getBoolean("night_mode",true);
+        if(isChecked){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            darkMode.setChecked(true);
+        }
+
+        darkMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    darkMode.setChecked(true);
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.putBoolean("night_mode",true);
+                    editor.commit();
+                }
+                else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    darkMode.setChecked(false);
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.putBoolean("night_mode",false);
+                    editor.commit();
+                }
+            }
+        });
 
 
         back = findViewById(R.id.back_button);
