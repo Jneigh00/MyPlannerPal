@@ -35,16 +35,11 @@
             android:textSize="30sp"
             android:text="@string/usernamecolon" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/usernameInput"
             android:layout_width="match_parent"
-            android:layout_height="243dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/usernameInput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/username" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:hint="@string/username" />
 
         <TextView
             android:id="@+id/password_id"
@@ -54,33 +49,27 @@
             android:text="@string/passwordcolon"
             android:textSize="30sp" />
 
-        <com.google.android.material.textfield.TextInputLayout
-
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordInput"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/passwordInput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/password"
-                android:inputType="textPassword"/>
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="15dp"
+            android:onClick="userLogin"
+            android:text="@string/login" />
 
-            <Button
-                android:id="@+id/button_login"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginTop="15dp"
-                android:onClick="userLogin"
-                android:text="@string/login" />
-
-            <Button
-                android:id="@+id/google_login"
-                android:layout_width="358dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/login_with_google_account" />
-        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/google_login"
+            android:layout_width="358dp"
+            android:layout_height="138dp"
+            android:layout_weight="1"
+            android:text="@string/login_with_google_account" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
