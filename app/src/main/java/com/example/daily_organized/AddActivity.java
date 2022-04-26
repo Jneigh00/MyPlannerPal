@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.daily_organized.Database.Event;
 import com.example.daily_organized.Database.EventDatabase;
@@ -29,6 +30,8 @@ public class AddActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 saveEvent(nameInput.getText().toString(), descInput.getText().toString());
+                Toast toast = Toast.makeText(getApplicationContext(),"Event Added!",Toast.LENGTH_LONG);
+                        toast.show();
             }
         });
     }
