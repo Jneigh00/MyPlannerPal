@@ -34,7 +34,7 @@ public class DoneList extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tododone, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        recyclerView = findViewById(R.id.recyclerview_for_todos);
+        recyclerView = findViewById(R.id.recyclerview_for_done);
 
 
         settings.setOnClickListener(new View.OnClickListener() {
@@ -61,8 +61,8 @@ public class DoneList extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        RecyclerView recyclerView = findViewById(R.id.recyclerview_for_todos);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerView recyclerView = findViewById(R.id.recyclerview_for_done);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
@@ -72,7 +72,7 @@ public class DoneList extends AppCompatActivity {
 
     private void loadEventList() {
         EventDatabase db = EventDatabase.getDatabase(this.getApplicationContext());
-        List<Event> eventList = db.eventDAO().getAllToDoEvents(false);
+        List<Event> eventList = db.eventDAO().getAllDoneEvents();
         adapterToDo.setEventList(eventList);
     }
 

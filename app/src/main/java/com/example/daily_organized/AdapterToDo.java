@@ -9,10 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.daily_organized.Database.Event;
+import com.example.daily_organized.Database.EventDatabase;
 
 import java.util.List;
 
@@ -26,6 +28,11 @@ public class AdapterToDo extends RecyclerView.Adapter<AdapterToDo.MyViewHolder> 
     }
 
     public void setEventList(List<Event> eventList) {
+       /* if(!this.eventList.equals(eventList)) {
+            this.eventList = eventList;
+            notifyDataSetChanged();
+        }else */
+
         this.eventList = eventList;
         notifyDataSetChanged();
     }
@@ -69,10 +76,14 @@ public class AdapterToDo extends RecyclerView.Adapter<AdapterToDo.MyViewHolder> 
         }
 
         private void checkDone(int position) {
-            eventList.get(position).done = true;
+            int id = eventList.get(position).id;
+            EventDatabase db = EventDatabase.getDatabase(doneImg.getContext());
+            db.eventDAO().updateDone(id);
             eventList.remove(position);
             notifyItemRemoved(position);
             notifyItemRangeChanged(position, eventList.size());
         }
+
+
     }
 }
