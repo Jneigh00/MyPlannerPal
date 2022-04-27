@@ -1,6 +1,7 @@
 package com.example.daily_organized;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,9 @@ public class AdapterToDo extends RecyclerView.Adapter<AdapterToDo.MyViewHolder> 
 
     Context context;
     List<Event> eventList;
+
+    MediaPlayer player;
+
 
     public AdapterToDo(Context ct){
         this.context = ct;
@@ -76,6 +80,10 @@ public class AdapterToDo extends RecyclerView.Adapter<AdapterToDo.MyViewHolder> 
         }
 
         private void checkDone(int position) {
+            if(player == null){
+                player = MediaPlayer.create(doneImg.getContext(), R.raw.sound);
+            }
+            player.start();
             int id = eventList.get(position).id;
             EventDatabase db = EventDatabase.getDatabase(doneImg.getContext());
             db.eventDAO().updateDone(id);
