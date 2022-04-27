@@ -21,7 +21,7 @@ public class DoneList extends AppCompatActivity {
     Button moveToDoList;
     Button settings;
     RecyclerView recyclerView;
-    AdapterToDo adapterToDo;
+    AdapterDone adapterDone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,14 +66,14 @@ public class DoneList extends AppCompatActivity {
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
-        adapterToDo = new AdapterToDo(this);
-        recyclerView.setAdapter(adapterToDo);
+        adapterDone = new AdapterDone(this);
+        recyclerView.setAdapter(adapterDone);
     }
 
     private void loadEventList() {
         EventDatabase db = EventDatabase.getDatabase(this.getApplicationContext());
         List<Event> eventList = db.eventDAO().getAllDoneEvents();
-        adapterToDo.setEventList(eventList);
+        adapterDone.setEventList(eventList);
     }
 
 }
