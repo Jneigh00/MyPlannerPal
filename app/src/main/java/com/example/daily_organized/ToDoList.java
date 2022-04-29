@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,6 +33,9 @@ public class ToDoList extends AppCompatActivity  implements AdapterView.OnItemSe
     Button done;
 
     SharedPreferences pref;
+
+
+
 
 
     @Override
@@ -106,7 +110,7 @@ public class ToDoList extends AppCompatActivity  implements AdapterView.OnItemSe
 
     private void loadEventList() {
         EventDatabase db = EventDatabase.getDatabase(this.getApplicationContext());
-        List<Event> eventList = db.eventDAO().getAllToDoEvents(false);
+        List<Event> eventList = db.eventDAO().getAllToDoEvents();
         adapterToDo.setEventList(eventList);
     }
 
@@ -126,10 +130,10 @@ public class ToDoList extends AppCompatActivity  implements AdapterView.OnItemSe
         EventDatabase db = EventDatabase.getDatabase(this.getApplicationContext());
 
         if(item == "To Do"){
-            List<Event> userList = db.eventDAO().getAllToDoEvents(false);
+            List<Event> userList = db.eventDAO().getAllToDoEvents();
             adapterToDo.setEventList(userList);
         } else {
-            List<Event> userList = db.eventDAO().getAllDoneEvents(true);
+            List<Event> userList = db.eventDAO().getAllDoneEvents();
             adapterToDo.setEventList(userList);
         }
     }

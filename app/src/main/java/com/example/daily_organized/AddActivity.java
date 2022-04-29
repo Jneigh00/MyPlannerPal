@@ -41,7 +41,7 @@ public class AddActivity extends AppCompatActivity {
         Event event = new Event();
         event.name = name;
         event.desc = desc;
-        event.done = false;
+        event.done = 0;
         db.eventDAO().addEvent(event);
         finish();
     }

@@ -18,6 +18,6 @@ public class Event {
     public String desc;
 
     @ColumnInfo(name = "done")
-    public boolean done;
+    public int done;
 
 }

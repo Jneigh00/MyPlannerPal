@@ -12,11 +12,11 @@ import androidx.room.Update;
 @Dao
 public interface EventDAO {
 
-    @Query("SELECT * FROM Events where done = :bool")
-    List<Event> getAllToDoEvents(boolean bool);
+    @Query("SELECT * FROM Events where done = 0")
+    List<Event> getAllToDoEvents();
 
-    @Query("SELECT * FROM Events where done = :bool")
-    List<Event> getAllDoneEvents(boolean bool);
+    @Query("SELECT * FROM Events where done = 1")
+    List<Event> getAllDoneEvents();
 
     @Query("Select * From Events where eventId = :id")
     Event getById(int id);
@@ -24,13 +24,13 @@ public interface EventDAO {
     @Insert
     void addEvent(Event... events);
 
-    @Update
-    void updateEvent(Event...events);
+    @Query("Update Events set done = 1 where eventId = :rowid")
+    void updateDone(int rowid);
 
     @Delete
     void removeEvent(Event... event);
 
-    @Query("Delete From Events where eventId = :e_id")
-    void delete(int e_id);
+    @Query("Delete From Events where eventId = :rowid")
+    void delete(int rowid);
 
 }

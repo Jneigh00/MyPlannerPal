@@ -66,10 +66,10 @@ public abstract class EventDatabase extends RoomDatabase{
     }
 
 
-    private void update(Event event){
-        new Thread(() -> INSTANCE.eventDAO().updateEvent(event)).start();
+    private void update(int rowid){
+        new Thread(() -> INSTANCE.eventDAO().updateDone(rowid)).start();
     }
-
+/*
     private static void getEvent(int id, eventListener listener){
         Handler handler = new Handler(Looper.getMainLooper()){
             @Override
@@ -85,4 +85,6 @@ public abstract class EventDatabase extends RoomDatabase{
         } )).start();
 
     }
+
+ */
 }
