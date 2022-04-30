@@ -10,5 +10,5 @@
 
     <color name="backGround">#FCFCFC</color>
     <color name = "textColor">#000000</color>
-
+    <color name="buttonColor">#D3D3D3</color>
 </resources>

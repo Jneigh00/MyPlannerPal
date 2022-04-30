@@ -37,13 +37,14 @@
                 android:id="@+id/back_button"
                 android:layout_width="72dp"
                 android:layout_height="37dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
+                android:background="@color/buttonColor"
                 android:text="@string/back"
-                android:textColor="@color/black"
+                android:textColor="@color/textColor"
                 app:layout_constraintBottom_toBottomOf="@+id/todo_toolbar"
                 app:layout_constraintStart_toStartOf="@+id/todo_toolbar"
                 app:layout_constraintTop_toTopOf="@+id/todo_toolbar"
-                app:layout_constraintVertical_bias="0.533" />
+                app:layout_constraintVertical_bias="0.526" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

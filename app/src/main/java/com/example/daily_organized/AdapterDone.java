@@ -1,11 +1,17 @@
 package com.example.daily_organized;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -52,13 +58,23 @@ public class AdapterDone extends RecyclerView.Adapter<AdapterDone.MyViewHolder>{
         TextView eventDescD;
         ImageView deleteImg;
 
+        ImageView twitter;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             eventNameD = itemView.findViewById(R.id.eventNameD);
             eventDescD = itemView.findViewById(R.id.eventDescD);
             deleteImg = itemView.findViewById(R.id.deleteBtn);
-
+            twitter = itemView.findViewById(R.id.add_to_Twitter);
             deleteImg.setOnClickListener(this);
+            twitter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String tweetUrl = "https://twitter.com/intent/tweet?text=I completed an event on my todo list &url=";
+                    Uri uri = Uri.parse(tweetUrl);
+                    twitter.getContext().startActivity((new Intent(Intent.ACTION_VIEW, uri)));
+                }
+            });
         }
 
         @Override
@@ -66,6 +82,7 @@ public class AdapterDone extends RecyclerView.Adapter<AdapterDone.MyViewHolder>{
             if(view.equals(deleteImg))
                 checkDone(getAdapterPosition());
         }
+
 
         private void checkDone(int position) {
             int id = eventList.get(position).id;

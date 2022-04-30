@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -23,10 +25,15 @@ public class DoneList extends AppCompatActivity {
     RecyclerView recyclerView;
     AdapterDone adapterDone;
 
+    public static final String TWITTER_PACKAGE_NAME = "com.twitter.android";
+
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_done);
+
+
 
         moveToDoList = findViewById(R.id.todo_or_done);
         settings = findViewById(R.id.settings_button);

@@ -10,5 +10,5 @@
 
     <color name="backGround">#2D313D</color>
     <color name = "textColor">#FFFFFFFF</color>
-
+    <color name="buttonColor">#757575</color>
 </resources>
