@@ -18,7 +18,7 @@
     <string name="user123">User123</string>
     <string name="information_about_user">Information about user</string>
     <string name="logout">Logout</string>
-    <string name="login_with_google_account">Login with Google Account</string>
+    <string name="login_with_google_account">Login with Google</string>
     <string name="add">add</string>
     <string name="to_do_list">To Do List</string>
     <string name="back">back</string>
