@@ -43,7 +43,7 @@ tools:context=".LoginPage">
                 app:layout_constraintTop_toTopOf="@+id/todo_toolbar"
                 app:layout_constraintVertical_bias="0.515"
                 android:text = "@string/show_done"
-                android:textColor="@color/black"
+                android:textColor="@color/textColor"
                 android:gravity="center"/>
 
             <Button

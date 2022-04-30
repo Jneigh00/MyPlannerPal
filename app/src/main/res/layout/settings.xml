@@ -39,7 +39,7 @@
                 android:layout_height="37dp"
                 android:layout_marginStart="8dp"
                 android:text="@string/back"
-                android:textColor="@color/black"
+                android:textColor="@color/textColor"
                 app:layout_constraintBottom_toBottomOf="@+id/todo_toolbar"
                 app:layout_constraintStart_toStartOf="@+id/todo_toolbar"
                 app:layout_constraintTop_toTopOf="@+id/todo_toolbar"
